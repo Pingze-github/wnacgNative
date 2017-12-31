@@ -8,7 +8,6 @@ const Schema = mongoose.Schema;
 const mdb = {};
 
 const options = {
-  useMongoClient : true,
   autoReconnect: true,
   poolSize: 10,
   keepAlive: true

@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -12,13 +11,15 @@ process.on('unhandledRejection', (rej) => {
 
 require('./global');
 
+// 定时获取漫画列表
+require('./work/fetchList').boot();
+
 const app = express();
 
 // 安装渲染引擎
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(favicon('./public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -50,6 +51,6 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen($config.port, () => {
-  console.log('Server start @ ', $config.port);
+  console.log('Server start @', $config.port);
 });
 
