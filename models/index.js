@@ -14,7 +14,7 @@ const options = {
 };
 
 mongoose.connect($config.mongo.url, options, (err) => {
-  if (err) return console.log(err);
+  if (err) return console.error(err);
   console.log(`Mongoose connected @ ${$config.mongo.url} !`)
 });
 

@@ -13,6 +13,7 @@ function requester(url, headers) {
     const options = {
       url: url,
       headers: headers,
+      timeout: 3000
     };
     request(options, (err, res, body) => {
       if (err) return reject(err);
@@ -137,4 +138,5 @@ async function planPicker(plan) {
 
 module.exports = {
   pick: planPicker,
+  requester,
 };

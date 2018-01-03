@@ -14,7 +14,7 @@ module.exports = {
     versionKey:false
   },
   index: [
-    {ctime: 1},
+    {aid: 1},
   ],
   method: {
     async add(body) {
