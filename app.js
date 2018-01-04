@@ -3,6 +3,7 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 
 // 捕获Promise异常
 process.on('unhandledRejection', (rej) => {
@@ -16,7 +17,8 @@ require('./work/fetchList').boot();
 
 const app = express();
 
-// 安装渲染引擎
+app.use(compression());
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
