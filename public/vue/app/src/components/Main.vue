@@ -66,7 +66,7 @@
         date = new Date(date)
         return date.getFullYear() + '-' +
           (date.getMonth() + 1) + '-' +
-          date.getDay()
+          date.getDate()
       },
       getComicList (cb) {
         let _this = this

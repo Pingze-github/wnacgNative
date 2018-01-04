@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="picture" v-for="pic in picList">
-      正在获取
       <img v-lazy="fullSrc(pic.url)" alt="pic.caption" class="pic">
     </div>
   </div>
@@ -41,6 +40,9 @@
     mounted () {
       this.aid = this.$route.params.aid
       this.getPicList()
+      document.onscroll = function () {
+        console.log(document.body.scrollTop, document.body.scrollTop + document.body.clientHeight)
+      }
     }
   }
 </script>

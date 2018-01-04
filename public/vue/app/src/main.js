@@ -3,13 +3,19 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
-
 import axios from 'axios'
-Vue.prototype.$http = axios
+import { Lazyload, InfiniteScroll, Header, Button } from 'mint-ui'
 
-Vue.use(MintUI)
+if (process.env.NODE_ENV === 'development') {
+  require('mint-ui/lib/style.css')
+}
+
+Vue.component(Button.name, Button)
+Vue.component(Header.name, Header)
+Vue.use(Lazyload)
+Vue.use(InfiniteScroll)
+
+Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
